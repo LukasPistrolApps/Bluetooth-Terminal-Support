@@ -1,0 +1,66 @@
+[
+    {
+        "category" : "Connections",
+        "icon" : "point.3.filled.connected.trianglepath.dotted",
+        "items" : [
+            {
+                "question" : "Peripheral keeps disconnecting",
+                "answer" : "Due to how Bluetooth Low Energy is designed, many accessories choose to consume as little energy as possible. Therefore it will disconnect after a short period of time of inactivity to save energy. If the hardware is designed by you or your team, consider changing power mode of the Bluetooth chip on the peripheral device."
+            },
+            {
+                "question" : "Can't connect to device",
+                "answer" : "This can have various reasons.\n\nThe peripheral device could block connections from non whitelisted devices. Make sure to include your iOS device's UUID in the peripherals whitelist. If can't change this (e.g. device is from a third party) there's nothing you can do."
+            },
+            {
+                "question" : "Device Name Unknown",
+                "answer" : "When scanning for devices you will encounter some devices that are \"Unknown\". This is because the device might not have a name assigned (since this is not required). You can identify the peripherals by their UUID."
+            }
+        ]
+    },
+    {
+        "category" : "Services",
+        "icon" : "rectangle.3.group.fill",
+        "items" : [
+            {
+                "question" : "What are Services?",
+                "answer" : "Every device may have one ore more services. Services can be seen as categories or groups of characteristics (values). There are normed services for battery, sensor data, device information, and many more."
+            },
+            {
+                "question" : "Why do some services have a name?",
+                "answer" : "All services have a UUID. Some of them are normed and have an associated description (name). In this case the name is shown instead of the UUID."
+            }
+        ]
+    },
+    {
+        "category" : "Characteristics",
+        "icon" : "wallet.pass.fill",
+        "items" : [
+            {
+                "question" : "What are Characteristics?",
+                "answer" : "Characteristics are values in their service. A service can have one or more characteristics. The value is encoded data and the app will show it to you decoded as ASCII, HEX and Int64."
+            }
+        ]
+    },
+    {
+        "category" : "Sending and receiving data",
+        "icon" : "arrow.left.arrow.right",
+        "items" : [
+            {
+                "question" : "How do I send data?",
+                "answer" : "Connect to a Peripheral and select a service you would like to write to. Then choose the characteristic and select the terminal button. Now you can enter ASCII sequences, HEX or Int64 Values and write them to the characteristic."
+            },
+            {
+                "question" : "Why can't I write to a characteristic?",
+                "answer" : "A characteristic can be configured as read-only. Therefore you cannot write values to it."
+            },
+            {
+                "question" : "'Write with response' vs. 'write without response",
+                "answer" : "There are two ways to write data to a characteristic. The most common is: withResponse. This means, that after a write operation you get a callback from the peripheral if it was successful. Otherwise you get an error message. But some peripherals might not support this mode. In the app this is marked with a red 'W' on the characteristic. In this case you have to switch to the withoutResponse mode.\n\nSome characteristics may support both modes. In this case you should use the withResponse mode."
+            },
+            {
+                "question" : "Receive data",
+                "answer" : "When in terminal you will see a new entry whenever the peripheral changes the value of the characteristic. This only works if the characteristic is configured to notify changes. This needs to be setup on the Bluetooth chip of the hardware. However you can choose to poll data changes from the characteristic. This will fetch the characteristic value once every second"
+            }
+        ]
+    }
+]
